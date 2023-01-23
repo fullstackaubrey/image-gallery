@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import CardList from './components/CardList.comp.js'
 
 function App() {
+  function importAll(r) {
+    return r.keys().map(r)
+  }
+
+  const images = importAll(
+    require.context('./assets/', false, /\.(png|jpe?g|svg)$/)
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CardList img={images} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
